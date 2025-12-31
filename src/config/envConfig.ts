@@ -24,8 +24,17 @@ const envConfig: IEnvConfig = {
     hostingerWebMailPass: process.env.HOSTINGER_WEB_MAIL_AUTH_PASS || "",
 
     // Client Email
-    clientEmail: process.env.CLIENT_EMAIL || ""
+    clientEmail: process.env.CLIENT_EMAIL || "",
 
+    // REALTIME
+    deviceId: process.env.DEVICE_ID!!,
+
+    // MSSQL
+    mssqlUser: process.env.MSSQL_USER!,
+    mssqlPassword: process.env.MSSQL_PASSWORD!,
+    mssqlServer: process.env.MSSQL_SERVER!,
+    mssqlDatabase: process.env.MSSQL_DATABASE_NAME!,
+    mssqlPort: Number(process.env.MSSQL_PORT)!,
 };
 
 export default envConfig;

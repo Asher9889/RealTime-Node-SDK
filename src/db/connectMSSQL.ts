@@ -1,15 +1,16 @@
 import sql from "mssql";
+import { envConfig } from "../config";
 
 const sqlConfig = {
-  user: process.env.DB_USER || "sa",
-  password: process.env.DB_PWD || "msspl@123",
-  database: process.env.DB_NAME || "AttDB",
-  server: '160.25.62.109',
-  port: 1433,
+  user: envConfig.mssqlUser,
+  password: envConfig.mssqlPassword,
+  database: envConfig.mssqlDatabase,
+  server: envConfig.mssqlServer,
+  port: Number(envConfig.mssqlPort),
   pool: {
     max: 10,
     min: 0,
-    idleTimeoutMillis: 30000
+    idleTimeoutMillis: 30000 
   },
   options: {
     encrypt: false, // for azure

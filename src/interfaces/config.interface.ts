@@ -16,4 +16,12 @@ export interface IEnvConfig {
     hostingerWebMailPass: string
     clientEmail: string;
 
+    // REALTIME
+    deviceId: string;
+    // MSSQL
+    mssqlUser: string;
+    mssqlPassword: string;
+    mssqlServer: string;
+    mssqlDatabase: string;
+    mssqlPort: number;
 }
