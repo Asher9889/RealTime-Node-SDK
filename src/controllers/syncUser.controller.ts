@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import syncUserService from "../services";
-import { StatusCodes } from "http-status-codes";
 import { ApiResponse } from "../utils";
 
 
