@@ -30,6 +30,7 @@ export async function syncAllUsersService() {
         console.log("\n--- STEP 2: Fetching Individual User Info ---");
         let successCount = 0;
         let failCount = 0;
+        let alreadySavedCount = 0;
 
         for (let i = 0; i < users.length; i++) {
             const user = users[i];
@@ -39,6 +40,7 @@ export async function syncAllUsersService() {
                 const isUserAlreadySave = await isUserAlreadySaved(user.user_id);
                 if (isUserAlreadySave) {
                     console.log(`[syncAllUsersService] User ${user.user_id} already saved in MSSQL`);
+                    alreadySavedCount++;
                     continue;
                 }
                 const infoTransId = await queueGetUserInfo(deviceId, user.user_id);
@@ -70,7 +72,8 @@ export async function syncAllUsersService() {
             status: "completed",
             totalUsers: users.length,
             successCount,
-            failCount
+            failCount,
+            alreadySavedCount
         };
     } catch (error) {
         console.error("\n[syncAllUsersService] FATAL ERROR:", error);

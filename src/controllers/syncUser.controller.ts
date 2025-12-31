@@ -1,14 +1,16 @@
 import { Request, Response } from "express";
 import syncUserService from "../services";
+import { StatusCodes } from "http-status-codes";
+import { ApiResponse } from "../utils";
 
 
 
 export async function syncAllUsers(req: Request, res: Response,) {
     try {
         const result = await syncUserService.syncAllUsersService();
-        return res.status(200).json(result);
-    } catch (error) {
+        return ApiResponse.success(res, "All Users Synced Successfully", result);
+    } catch (error: any) {
         console.log("Error in syncAllUsers", error);
-        res.status(500).json({ error: "Failed to sync users" });
+        return ApiResponse.error(res, error.message);
     }
 }
