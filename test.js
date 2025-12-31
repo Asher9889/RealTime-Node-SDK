@@ -1,0 +1,1 @@
+console.log(typeof (Math.random() * 10000).toFixed()); 

@@ -1,0 +1,37 @@
+{
+  "name": "realtime-node-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Asher9889/RealTime-Attendance-Node-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/Asher9889/RealTime-Attendance-Node-SDK/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asher9889/RealTime-Attendance-Node-SDK.git"
+  },
+  "license": "ISC",
+  "author": "Saurabh Kushwaha",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "http-status-codes": "^2.3.0",
+    "mssql": "^12.2.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/mssql": "^9.1.8",
+    "@types/node": "^25.0.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
