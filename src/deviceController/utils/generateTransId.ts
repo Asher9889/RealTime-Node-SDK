@@ -1,12 +1,9 @@
-console.log(typeof (Math.random() * 10000).toFixed()); 
-
-
 let lastTransId = Math.floor(Math.random() * 60000);
 
-function generateTransId() {
+function generateTransId(): string {
   lastTransId = (lastTransId + 1) % 65000;
   if (lastTransId < 1000) lastTransId += 1000;
   return String(lastTransId);
 }
 
-console.log(generateTransId());
+export default generateTransId;
