@@ -18,6 +18,8 @@ export interface IEnvConfig {
 
     // REALTIME
     deviceId: string;
+    deviceIp: string;
+    devicePort: number;
     // MSSQL
     mssqlUser: string;
     mssqlPassword: string;

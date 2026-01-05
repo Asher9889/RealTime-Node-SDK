@@ -1,12 +1,13 @@
-console.log(typeof (Math.random() * 10000).toFixed()); 
+import fs from "fs";
+import net from "net";
 
+const payload = fs.readFileSync("raw2.bin");
 
-let lastTransId = Math.floor(Math.random() * 60000);
+const socket = new net.Socket();
 
-function generateTransId() {
-  lastTransId = (lastTransId + 1) % 65000;
-  if (lastTransId < 1000) lastTransId += 1000;
-  return String(lastTransId);
-}
+socket.connect(5005, "192.168.001.037", () => {
+    console.log("Connected");
+  socket.write(payload);  // NOTHING ELSE
+});
 
-console.log(generateTransId());
+socket.on("data", (d) => console.log(d.toString("hex")));

@@ -1,5 +1,6 @@
 import { sqlPool } from "../../db";
 import encodeBSComm from "./encodeBSComm";
+import { encodeUserInfoWithPhoto } from "./encodeEnrollUserPhotoBSComm";
 import generateTransId from "./generateTransId";
 import waitForCommandResult from "./waitForCommandResult";
 
@@ -7,17 +8,16 @@ export default async function setUserInfo(deviceId: string,
   user: {
     user_id: string;
     user_name: string;
+    photoBuffer: Buffer;
     privilege?: string;
   }
 ) {
   const transId = generateTransId();
 
-  const payload = encodeBSComm({
+  const payload = encodeUserInfoWithPhoto({
     user_id: user.user_id,
     user_name: user.user_name,
-    user_privilege: user.privilege ?? "User",
-    user_enabled: 1,
-    user_depart_id: 0
+    photo: user.photoBuffer,
   });
 
   await sqlPool.request()

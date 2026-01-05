@@ -13,7 +13,7 @@ app.use(express.raw({type: "application/octet-stream", limit: "50mb"}));
 app.use(express.json({limit: "50mb"}));
 app.use(express.urlencoded({limit: "50mb", extended: true}));
 
-// startEnrollmentWatcher();
+startEnrollmentWatcher();
 // app.post("/", realtimeDeviceController);
 
 app.use("/api", apiRoutes);

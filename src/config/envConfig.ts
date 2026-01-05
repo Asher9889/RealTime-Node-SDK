@@ -28,6 +28,8 @@ const envConfig: IEnvConfig = {
 
     // REALTIME
     deviceId: process.env.DEVICE_ID!!,
+    deviceIp: process.env.DEVICE_IP!!,
+    devicePort: Number(process.env.DEVICE_TCP_PORT)!!,
 
     // MSSQL
     mssqlUser: process.env.MSSQL_USER!,
@@ -35,6 +37,7 @@ const envConfig: IEnvConfig = {
     mssqlServer: process.env.MSSQL_SERVER!,
     mssqlDatabase: process.env.MSSQL_DATABASE_NAME!,
     mssqlPort: Number(process.env.MSSQL_PORT)!,
+
 };
 
 export default envConfig;
