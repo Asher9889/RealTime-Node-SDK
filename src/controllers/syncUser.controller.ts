@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import syncUserService from "../services";
 import { ApiResponse } from "../utils";
 import { registerUserService, remoteEnrollmentService, watchNewEntryViaDeviceService } from "../deviceController/realtimeDevice.controller";
+import { StatusCodes } from "http-status-codes";
 
 
 
@@ -59,7 +60,7 @@ export async function remoteRegisterUser(req: Request, res: Response) {
         const photoBuffer: Buffer = file.buffer;
 
         const result = await remoteEnrollmentService({ deviceId, userId, userName, photo: photoBuffer });
-        return ApiResponse.success(res, "User Registered Successfully", result);
+        return ApiResponse.success(res, "Please look at the device camera.", result, StatusCodes.ACCEPTED);
     } catch (error: any) {
         console.log("Error in registerUser", error);
         return ApiResponse.error(res, error.message);

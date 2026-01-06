@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/sync-all", syncAllUsers);
 router.post("/register", upload.single("photo"), registerUser);
-router.post("/remote-register",upload.single("photo"), remoteRegisterUser);
+router.post("/remote-register", upload.single("photo"), remoteRegisterUser);
 
 
 
